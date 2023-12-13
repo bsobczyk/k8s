@@ -1,10 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
+   name: myapp-prod
    labels:
     tier: frontend
-    name: my-app
+    app: myapp
+    env: prod
+  
 spec:
   containers:
-  - image: nginx
-    name: my-app
+  - image: stefanprodan/podinfo
+    name: myapp-podinfo-container
+    ports:
+      - containerPort: 9898
